@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html ng-app="restaurantsModule" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Restaurants</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">    
+
+  <script src="angular.js"></script>
+  <script src="angular-resource.js"></script>
+  <!-- Uključena je i biblioteka angular-ui-router -->
+  <script src="angular-ui-router.js"></script>
+  <script src="app.js"></script>
+  <script type="text/javascript" src="RestaurantsHttpService.js"></script>
+  <!--  <script src="MainController.js"></script> MainController nam više nije potreban. Videti app.js-->
+  <script src="RestaurantsTableController.js"></script>
+  <script src="AddRestaurantController.js"></script>
+
+  <link rel="stylesheet" href="bootstrap-3.3.5-dist/css/bootstrap.min.css"> 
+  <script src="jquery-1.11.0.js"></script>
+  <script src="bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+
+  <style>
+  .affix {
+    top: 0;
+    width: 100%;
+    z-index:9999;
+  }
+
+  .affix + .container-fluid {
+    padding-top: 70px;
+  }
+  </style>
+</head>
+<body>
+
+  <!-- uklonjeno je ng-controller="MainController" -->
+  <div>
+
+    <div class="row" data-spy="affix" data-offset-top="10">          
+      <div ng-include="'Navbar.html'"></div>      
+    </div>
+
+    <!-- mesto gde će se smenjivati templejti -->
+    <div ui-view></div>
+    
+    <!-- <div ng-show="showPanels.showRestaurantTable" ng-include="'RestaurantTable.html'"></div>
+    <div ng-show="showPanels.showAddRestaurant" ng-include="'AddRestaurant.html'"></div> -->
+  </div>
+  
+</body>
+</html>

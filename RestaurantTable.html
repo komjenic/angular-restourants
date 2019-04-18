@@ -1,0 +1,79 @@
+<!-- uklonjena je ng-controller direktiva -->
+<div class="container-fluid">
+	<form class="form-inline" role="form">          
+		<div class="form-group">                 
+			
+			<input id="searchName" type="text" class="form-control" placeholder="Search" ng-model="searchQuery">
+			<!-- Kada korisnik klikne na dugme poziva se $scope.searh() funkcija-->
+			<button class="btn btn-primary" ng-click="search()"><span class="glyphicon glyphicon-search"></span></button>			
+			
+			<!-- Pomoću ng-model postavlajmo $scope.selectedItem na ono što je korisnik odabrao -->       
+			<div class="col-sm-4">
+				<select class="form-control" id="selectSearchCriteria" ng-model="selectedItem">
+        			<option active>name</option>
+        			<option>rating</option>
+        			<option>price</option>
+        			<option>cuisine</option>
+				</select>
+			</div>
+		</div>                      
+	</form>
+	<!-- {{selectedItem}} -->
+
+	<div class="row">
+		<div class="col-sm-12 table-responsive">
+			<table class="table table-striped">
+				<thead>
+					<th>
+						Name
+						<a href="#" ng-click="setSortCriteria('name')"><span class="glyphicon glyphicon-sort"></span></a>
+					</th>
+					<th>
+						Rating
+						<a href="#" ng-click="setSortCriteria('rating')"><span class="glyphicon glyphicon-sort"></span></a>
+					</th>
+					<th>
+						Price
+						<a href="#" ng-click="setSortCriteria('price')"><span class="glyphicon glyphicon-sort"></span></a>
+					</th>
+					<th>
+						Cuisine
+						<a href="#" ng-click="setSortCriteria('cuisine')"><span class="glyphicon glyphicon-sort"></span></a>
+					</th>
+					<th>
+						Working hours				
+					</th>
+					<th>
+						Location
+					</th>
+					<th width="300">
+						Description
+					</th>
+				</thead>
+				<tbody>
+					<tr ng-repeat="restaurant in restaurants">
+						<td>{{restaurant.name}}</td>
+						<td>{{restaurant.rating}}</td>
+						<td>{{restaurant.price}}</td>
+						<td>{{restaurant.cuisine}}</td>
+						<td>{{restaurant.opens}} to {{restaurant.closes}}</td>
+						<td>{{restaurant.location}}</td>
+						<td>{{restaurant.description}}</td>
+						<td><button type="button" class="btn btn-link" ng-click="remove(restaurant._id)">Remove</button></td>
+						<td><button type="button" class="btn btn-link" ng-click="update(restaurant._id)">Update</button></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-12 text-center">
+			<ul class="pagination" ng-repeat="i in paginationPagesArr">
+				<!-- U changePage prosleđujemo i (ono što piše na "kockici")-->
+    			<li ng-class="{'active': i == activePage}"><span ng-click="changePage(i)">{{ i }}</span></li>
+			</ul>
+		</div>
+	</div>
+
+</div>

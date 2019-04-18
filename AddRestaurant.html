@@ -1,0 +1,74 @@
+<!-- uklonjena je ng-controller direktiva jer je kontroler definisan pravilima rutiranja -->
+<div class="container-fluid">
+    
+    <form class="form-horizontal" role="form" ng-submit="add()">
+  			
+  			<div id="nameFG" class="form-group has-warning has-feedback">
+    			<label class="control-label col-sm-2" for="name">Name:</label>
+    			<div class="col-sm-10">
+              <!-- Iz svih ng-model dorektiva je uklonjeno showPanels jer se više ne dobacujemo objektom
+              restorana preko MainController-a već ga preuzimamo putem resolve-a -->
+      				<input type="text" class="form-control" name="name" placeholder="Enter name" required="" ng-model="newRestaurant.name"></input>
+      				<span id="nameGlyph" class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+    			</div>
+  			</div>
+  			
+  			<div id="ratingFG" class="form-group has-warning has-feedback">
+    			<label class="control-label col-sm-2" for="rating">Rating:</label>
+    			<div class="col-sm-10">
+      				<input type="number" class="form-control" name="rating" placeholder="Enter rating" required="" ng-model="newRestaurant.rating"></input>
+      				<span id="ratingGlyph" class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+    			</div>
+  			</div>
+
+  			<div id="priceFG" class="form-group has-warning has-feedback">
+    			<label class="control-label col-sm-2" for="price">Price:</label>
+    			<div class="col-sm-10">
+      				<input type="number" class="form-control" name="price" placeholder="Enter price" required="" ng-model="newRestaurant.price"></input>
+      				<span id="ratingGlyph" class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+    			</div>
+  			</div>
+
+  			<div id="cuisineFG" class="form-group has-warning has-feedback">
+    			<label class="control-label col-sm-2" for="cuisine">Cuisine:</label>
+    			<div class="col-sm-10">
+      				<input type="text" class="form-control" name="cuisine" placeholder="Enter cuisine" required="" ng-model="newRestaurant.cuisine"></input>
+      				<span id="nameGlyph" class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+    			</div>
+  			</div>
+
+  			<div id="workingHoursFG" class="form-group has-warning has-feedback">
+    			<label class="control-label col-sm-2" for="workingHours">Working hours:</label>
+    			<div class="col-sm-5">
+      				<input type="text" data-format="hh:mm:ss" class="form-control" name="workingHours" placeholder="Opens" required="" ng-model="newRestaurant.opens"></input>      				
+      				<span id="nameGlyph" class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+    			</div>
+    			<div class="col-sm-5">
+      				<input type="text" data-format="hh:mm:ss" class="form-control" name="workingHours" placeholder="Closes" required="" ng-model="newRestaurant.closes"></input>      				
+      				<span id="nameGlyph" class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+    			</div>
+  			</div>
+
+  			<div id="loactionFG" class="form-group has-warning has-feedback">
+    			<label class="control-label col-sm-2" for="location">Cuisine:</label>
+    			<div class="col-sm-10">
+      				<input type="text" class="form-control" name="location" placeholder="Enter location" required="" ng-model="newRestaurant.location"></input>
+      				<span id="nameGlyph" class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+    			</div>
+  			</div>
+
+  			<div id="descriptionFG" class="form-group has-warning has-feedback">
+    			<label class="control-label col-sm-2" for="description">Description:</label>
+    			<div class="col-sm-10">
+      				<textarea class="form-control" name="description" placeholder="Enter description" rows="5" required="" ng-model="newRestaurant.description"></textarea>
+      				<span id="descriptionGlyph" class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+    			</div>
+  			</div>
+
+  			<div class="form-group"> 
+    			<div class="col-sm-offset-2 col-sm-10">
+      				<button type="submit" id="addBtn" class="btn btn-default">Submit</button>
+    			</div>
+  			</div>
+		</form>
+	</div>
